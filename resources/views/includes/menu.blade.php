@@ -5,13 +5,19 @@
                <ul class="nav navbar-nav">
                   <li class="menu-title">Menu</li>
                   <li class="menu-item-has-children dropdown">
-                     <a href="#" >Student</a>
+                     <a href="{{Route('register.view') }}" >Register</a>
+                  </li>
+                  <li class="menu-item-has-children dropdown">
+                     <a href="{{Route('student.view') }}" >Student</a>
                   </li>
                   <li class="menu-item-has-children dropdown">
                      <a href="#" >Teacher</a>
                   </li>
 				  <li class="menu-item-has-children dropdown">
                      <a href="#" >Department</a>
+                  </li>
+                  <li class="menu-item-has-children dropdown">
+                     <a href="#" >Course</a>
                   </li>
                </ul>
             </div>

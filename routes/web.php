@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Register\RegisterController;
 use App\Http\Controllers\Student\StudentController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,7 +23,13 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+// Register
+Route::get('/RegisterView',[RegisterController::class,'index'])->name('register.view');
 
+// Student
 Route::get('/StudentView',[StudentController::class,'index'])->name('student.view');
+Route::post('/StudentStore',[StudentController::class,'store'])->name('student.store');
+
+//Teacher
 
 require __DIR__.'/auth.php';

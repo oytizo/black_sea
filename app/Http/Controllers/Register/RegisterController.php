@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Student;
+namespace App\Http\Controllers\Register;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StudentRequest;
 use Illuminate\Http\Request;
 
-class StudentController extends Controller
+class RegisterController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +14,7 @@ class StudentController extends Controller
      */
     public function index()
     {
-        return view('Student/student');
+        return view('Register.register');
     }
 
     /**
@@ -34,10 +33,9 @@ class StudentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StudentRequest $request)
+    public function store(Request $request)
     {
-       
-
+        //
     }
 
     /**
