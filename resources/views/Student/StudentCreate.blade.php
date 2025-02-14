@@ -7,7 +7,7 @@
          <div class="col-xl-12">
             <div class="card">
                <div class="card-body">
-                  <h4 class="box-title"><a href="">Student</a> </h4>
+                  <h4 class="box-title"><a href="{{ Route('student.view') }}">Student</a> </h4>
                </div>
                <div class="card-body-- pb-1">
                   <form class="pb-5 m-3" action="{{ Route('student.store') }}" method="POST" encrypt="multipart/form-data">
@@ -19,10 +19,6 @@
                      <div class="form-group">
                         <label for="formGroupExampleInput2">Email</label>
                         <input type="email" class="form-control" id="formGroupExampleInput2" name="email" placeholder="name@example.com" required>
-                     </div>
-                     <div class="form-group">
-                        <label for="formGroupExampleInput">Password</label>
-                        <input type="password" class="form-control" id="formGroupExampleInput" name="password" placeholder="Password" required>
                      </div>
                      <div class="form-group">
                         <label for="formGroupExampleInput">Contact</label>
@@ -60,6 +56,13 @@
                         @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li>
                         @endforeach
+                     </ul>
+                  </div>
+                  @endif
+                  @if (session('message'))
+                  <div class="alert alert-success">
+                     <ul>
+                        <li>{{ session('message') }}</li>
                      </ul>
                   </div>
                   @endif

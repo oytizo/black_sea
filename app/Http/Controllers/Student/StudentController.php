@@ -2,12 +2,20 @@
 
 namespace App\Http\Controllers\Student;
 
+use Illuminate\Http\Request;
+use App\Models\Student\Student;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StudentRequest;
-use Illuminate\Http\Request;
+use App\Repositories\Interfaces\StudentRepositoryInterface;
 
 class StudentController extends Controller
 {
+    private $StudentRepository;
+
+    public function __construct(StudentRepositoryInterface $StudentRepository)
+    {
+        $this->StudentRepository = $StudentRepository;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +23,8 @@ class StudentController extends Controller
      */
     public function index()
     {
-        return view('Student/student');
+        $students = $this->StudentRepository->all();
+        return view('Student.StudentIndex', ['students' => $students]);
     }
 
     /**
@@ -25,7 +34,7 @@ class StudentController extends Controller
      */
     public function create()
     {
-        //
+        return view('Student.StudentCreate');
     }
 
     /**
@@ -36,8 +45,17 @@ class StudentController extends Controller
      */
     public function store(StudentRequest $request)
     {
-       
 
+        $existingEmail = $this->StudentRepository->emailcheck($request->email);
+
+        if ($existingEmail) {
+            return redirect()->back()->with('message', 'Email Already Exist');
+        } else {
+            $student = $request->all();
+            $this->StudentRepository->store($student);
+            $students = $this->StudentRepository->all();
+            return view('Student.StudentIndex', ['students' => $students])->with('message', 'Student Added Successfully');
+        }
     }
 
     /**
@@ -46,10 +64,7 @@ class StudentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //
-    }
+    public function show($id) {}
 
     /**
      * Show the form for editing the specified resource.
@@ -59,7 +74,8 @@ class StudentController extends Controller
      */
     public function edit($id)
     {
-        //
+        $student = $this->StudentRepository->edit($id);
+        return view('Student.StudentUpdate', ['student' => $student]);
     }
 
     /**
@@ -69,9 +85,17 @@ class StudentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StudentRequest $request, $id)
     {
-        //
+        $EmailCount = $this->StudentRepository->emailcount($request->email);
+        if ($EmailCount>=1) {
+            return redirect()->back()->with('message', 'Email Already Exist');
+        } else {
+            $data = $request->all();
+            $this->StudentRepository->update($data, $id);
+            $students = $this->StudentRepository->all();
+            return view('Student.StudentIndex', ['students' => $students])->with('message', 'Student Updated Successfully');
+        }
     }
 
     /**
@@ -82,6 +106,8 @@ class StudentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $this->StudentRepository->delete($id);
+        $students = $this->StudentRepository->all();
+        return view('Student.StudentIndex', ['students' => $students])->with('message', 'Student Deleted Successfully');
     }
 }
