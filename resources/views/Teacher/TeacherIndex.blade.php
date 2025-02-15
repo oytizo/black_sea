@@ -8,8 +8,8 @@
             <div class="col-xl-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="box-title">Student</h4>
-                        <h4 class="box-link"><a href="{{ Route('student.create') }}">Add Student</a></h4>
+                        <h4 class="box-title">Teacher</h4>
+                        <h4 class="box-link"><a href="{{ Route('teacher.create') }}">Add Teacher</a></h4>
                     </div>
                     <div class="card-body--">
                         <div class="table-stats order-table ov-h">
@@ -17,28 +17,30 @@
                                 <thead>
                                     <tr>
                                         <th class="serial">#SI.</th>
-                                        <th>Student Name</th>
+                                        <th>Teacher Name</th>
                                         <th>Email</th>
-                                        <th>Session</th>
+                                        <th>Password</th>
                                         <th>Age</th>
-                                        <th>Gender</th>
                                         <th>Contact</th>
+                                        <th>Address</th>
+                                        <th>Gender</th>
                                         <th>Status</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($students as $key=>$student)
+                                    @foreach($teachers as $key=>$teacher)
                                     <tr>
                                         <td class="serial">{{ $key+1 }}</td>
-                                        <td>{{ $student->name }}</td>
-                                        <td>{{ $student->email }}</td>
-                                        <td>{{ $student->session }}</td>
-                                        <td>{{ $student->age }}</td>
-                                        <td>{{ $student->gender }}</td>
-                                        <td>{{ $student->contact }}</td>
+                                        <td>{{ $teacher->name }}</td>
+                                        <td>{{ $teacher->email }}</td>
+                                        <td>{{ $teacher->password }}</td>
+                                        <td>{{ $teacher->age }}</td>
+                                        <td>{{ $teacher->contact }}</td>
+                                        <td>{{ $teacher->address }}</td>
+                                        <td>{{ $teacher->gender }}</td>
                                         <td>
-                                            <a href="{{ Route('student.edit',$student->id) }}" class="btn-sm btn-primary rounded">Edit</a>
-                                            <a href="{{ Route('student.destroy',$student->id) }}" class="btn-sm btn-danger rounded">Delete</a>
+                                            <a href="{{ Route('teacher.edit',$teacher->id) }}" class="btn-sm btn-primary rounded">Edit</a>
+                                            <a href="{{ Route('teacher.destroy',$teacher->id) }}" class="btn-sm btn-danger rounded">Delete</a>
                                         </td>
                                     </tr>
                                     @endforeach

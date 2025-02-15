@@ -22,10 +22,4 @@ class StudentRepository implements StudentRepositoryInterface{
     public function delete($id){
         Student::where('id', $id)->delete();
     }
-    public function emailcheck($email){
-        return Student::where('email', $email)->first();
-    }
-    public function emailcount($email){
-        return Student::where('email', $email)->count();
-    }
 }

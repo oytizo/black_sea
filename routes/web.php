@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Register\RegisterController;
 use App\Http\Controllers\Student\StudentController;
+use App\Http\Controllers\Teacher\TeacherController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,5 +36,13 @@ Route::post('/StudentUpdate/{student}',[StudentController::class,'update'])->nam
 Route::get('/StudentDelete/{student}',[StudentController::class,'destroy'])->name('student.destroy');
 
 //Teacher
+Route::get('/TeacherView',[TeacherController::class,'index'])->name('teacher.view');
+Route::get('/TeacherCreate',[TeacherController::class,'create'])->name('teacher.create');
+Route::post('/TeacherStore',[TeacherController::class,'store'])->name('teacher.store');
+Route::get('/TeacherShow/{teacher}',[TeacherController::class,'edit'])->name('teacher.edit');
+Route::post('/TeacherUpdate/{teacher}',[TeacherController::class,'update'])->name('teacher.update');
+Route::get('/TeacherDelete/{teacher}',[TeacherController::class,'destroy'])->name('teacher.destroy');
+
+
 
 require __DIR__.'/auth.php';

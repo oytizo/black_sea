@@ -2,7 +2,7 @@
 
 namespace App\Repositories\Interfaces;
 
-interface StudentRepositoryInterface
+interface TeacherRepositoryInterface
 {
     public function all();
     public function store($data);
