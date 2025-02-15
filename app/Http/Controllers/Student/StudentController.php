@@ -45,17 +45,10 @@ class StudentController extends Controller
      */
     public function store(StudentRequest $request)
     {
-
-        $existingEmail = $this->StudentRepository->emailcheck($request->email);
-
-        if ($existingEmail) {
-            return redirect()->back()->with('message', 'Email Already Exist');
-        } else {
-            $student = $request->all();
-            $this->StudentRepository->store($student);
-            $students = $this->StudentRepository->all();
-            return view('Student.StudentIndex', ['students' => $students])->with('message', 'Student Added Successfully');
-        }
+        $student = $request->all();
+        $this->StudentRepository->store($student);
+        $students = $this->StudentRepository->all();
+        return view('Student.StudentIndex', ['students' => $students])->with('message', 'Student Added Successfully');
     }
 
     /**
@@ -87,15 +80,10 @@ class StudentController extends Controller
      */
     public function update(StudentRequest $request, $id)
     {
-        $EmailCount = $this->StudentRepository->emailcount($request->email);
-        if ($EmailCount>=1) {
-            return redirect()->back()->with('message', 'Email Already Exist');
-        } else {
-            $data = $request->all();
-            $this->StudentRepository->update($data, $id);
-            $students = $this->StudentRepository->all();
-            return view('Student.StudentIndex', ['students' => $students])->with('message', 'Student Updated Successfully');
-        }
+        $data = $request->all();
+        $this->StudentRepository->update($data, $id);
+        $students = $this->StudentRepository->all();
+        return view('Student.StudentIndex', ['students' => $students])->with('message', 'Student Updated Successfully');
     }
 
     /**

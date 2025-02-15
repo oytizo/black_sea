@@ -28,7 +28,7 @@
                                 <tbody>
                                     @foreach($students as $key=>$student)
                                     <tr>
-                                        <td class="serial">{{ $key }}</td>
+                                        <td class="serial">{{ $key+1 }}</td>
                                         <td>{{ $student->name }}</td>
                                         <td>{{ $student->email }}</td>
                                         <td>{{ $student->session }}</td>

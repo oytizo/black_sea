@@ -30,9 +30,9 @@ Route::get('/RegisterView',[RegisterController::class,'index'])->name('register.
 Route::get('/StudentView',[StudentController::class,'index'])->name('student.view');
 Route::get('/StudentCreate',[StudentController::class,'create'])->name('student.create');
 Route::post('/StudentStore',[StudentController::class,'store'])->name('student.store');
-Route::get('/StudentShow/{id}',[StudentController::class,'edit'])->name('student.edit');
-Route::post('/StudentUpdate/{id}',[StudentController::class,'update'])->name('student.update');
-Route::get('/StudentDelete/{id}',[StudentController::class,'destroy'])->name('student.destroy');
+Route::get('/StudentShow/{student}',[StudentController::class,'edit'])->name('student.edit');
+Route::post('/StudentUpdate/{student}',[StudentController::class,'update'])->name('student.update');
+Route::get('/StudentDelete/{student}',[StudentController::class,'destroy'])->name('student.destroy');
 
 //Teacher
 
