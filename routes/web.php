@@ -1,9 +1,11 @@
 <?php
 
-use App\Http\Controllers\Register\RegisterController;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Course\CourseController;
 use App\Http\Controllers\Student\StudentController;
 use App\Http\Controllers\Teacher\TeacherController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Register\RegisterController;
+use App\Http\Controllers\Department\DepartmentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,6 +45,21 @@ Route::get('/TeacherShow/{teacher}',[TeacherController::class,'edit'])->name('te
 Route::post('/TeacherUpdate/{teacher}',[TeacherController::class,'update'])->name('teacher.update');
 Route::get('/TeacherDelete/{teacher}',[TeacherController::class,'destroy'])->name('teacher.destroy');
 
+// Course
+Route::get('/CourseView',[CourseController::class,'index'])->name('course.view');
+Route::get('/CourseCreate',[CourseController::class,'create'])->name('course.create');
+Route::post('/CourseStore',[CourseController::class,'store'])->name('course.store');
+Route::get('/CourseShow/{course}',[CourseController::class,'edit'])->name('course.edit');
+Route::post('/CourseUpdate/{course}',[CourseController::class,'update'])->name('course.update');
+Route::get('/CourseDelete/{course}',[CourseController::class,'destroy'])->name('course.destroy');
+
+// Department
+Route::get('/DepartmentView',[DepartmentController::class,'index'])->name('department.view');
+Route::get('/DepartmentCreate',[DepartmentController::class,'create'])->name('department.create');
+Route::post('/DepartmentStore',[DepartmentController::class,'store'])->name('department.store');
+Route::get('/DepartmentShow/{department}',[DepartmentController::class,'edit'])->name('department.edit');
+Route::post('/DepartmentUpdate/{department}',[DepartmentController::class,'update'])->name('department.update');
+Route::get('/DepartmentDelete/{department}',[DepartmentController::class,'destroy'])->name('department.destroy');
 
 
 require __DIR__.'/auth.php';

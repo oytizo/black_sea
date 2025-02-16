@@ -22,7 +22,7 @@
                            <h4 class="box-title"><a href="{{ Route('teacher.view') }}">Update Teacher</a> </h4>
                         </div>
                         <div class="card-body">
-                           <h4 class="box-title"><a href="">Course</a> </h4>
+                           <h4 class="box-title"><a href="{{ Route('course.view') }}">Course</a> </h4>
                         </div>
                         <div class="card-body">
                            <h4 class="box-title"><a href="">Department</a> </h4>

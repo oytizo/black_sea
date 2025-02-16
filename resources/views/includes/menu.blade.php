@@ -14,10 +14,10 @@
                      <a href="{{Route('teacher.view') }}" >Teacher</a>
                   </li>
 				  <li class="menu-item-has-children dropdown">
-                     <a href="#" >Department</a>
+                     <a href="{{ Route('department.view') }}" >Department</a>
                   </li>
                   <li class="menu-item-has-children dropdown">
-                     <a href="#" >Course</a>
+                     <a href="{{ Route('course.view') }}" >Course</a>
                   </li>
                </ul>
             </div>
