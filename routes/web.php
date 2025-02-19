@@ -23,10 +23,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-
-
-
 Route::middleware('auth:web')->prefix('admin')->name('admin.')->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard');
@@ -68,16 +64,6 @@ Route::middleware('auth:web')->prefix('admin')->name('admin.')->group(function (
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
         ->name('logout');
 });
-
-// Student
-
-
-//Teacher
-
-
-
-
-
 
 require __DIR__ . '/auth.php';
 require __DIR__ . '/teacher-auth.php';

@@ -26,8 +26,7 @@ Route::middleware('auth:teacher')->prefix('teacher')->name('teacher.')->group(fu
     Route::get('/TeacherDelete/{teacher}', [TeacherController::class, 'destroy'])->name('teacher.destroy');
     //Student
     Route::get('/StudentView', [TeacherController::class, 'studentinfo'])->name('student.view');
-   
-
+//    logout
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
         ->name('logout');
 });
