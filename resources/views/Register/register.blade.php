@@ -10,19 +10,19 @@
                            <h4 class="box-title text-danger">Register </h4>
                         </div>
                         <div class="card-body">
-                           <h4 class="box-title"><a href="{{ Route('student.create') }}">Enroll Student</a> </h4>
+                           <h4 class="box-title"><a href="{{ Route('admin.student.create') }}">Enroll Student</a> </h4>
                         </div>
                         <div class="card-body">
-                           <h4 class="box-title"><a href="{{ Route('student.view') }}">Update Student</a> </h4>
+                           <h4 class="box-title"><a href="{{ Route('admin.student.view') }}">Update Student</a> </h4>
                         </div>
                         <div class="card-body">
-                           <h4 class="box-title"><a href="{{ Route('teacher.create') }}">Enroll Teacher</a> </h4>
+                           <h4 class="box-title"><a href="{{ Route('admin.teacher.create') }}">Enroll Teacher</a> </h4>
                         </div>
                         <div class="card-body">
-                           <h4 class="box-title"><a href="{{ Route('teacher.view') }}">Update Teacher</a> </h4>
+                           <h4 class="box-title"><a href="{{ Route('admin.teacher.view') }}">Update Teacher</a> </h4>
                         </div>
                         <div class="card-body">
-                           <h4 class="box-title"><a href="{{ Route('course.view') }}">Course</a> </h4>
+                           <h4 class="box-title"><a href="{{ Route('admin.course.view') }}">Course</a> </h4>
                         </div>
                         <div class="card-body">
                            <h4 class="box-title"><a href="">Department</a> </h4>

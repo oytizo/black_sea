@@ -9,7 +9,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h4 class="box-title">Teacher</h4>
-                        <h4 class="box-link"><a href="{{ Route('teacher.create') }}">Add Teacher</a></h4>
+                        <h4 class="box-link"><a href="{{ Route('admin.teacher.create') }}">Add Teacher</a></h4>
                     </div>
                     <div class="card-body--">
                         <div class="table-stats order-table ov-h">
@@ -39,8 +39,8 @@
                                         <td>{{ $teacher->address }}</td>
                                         <td>{{ $teacher->gender }}</td>
                                         <td>
-                                            <a href="{{ Route('teacher.edit',$teacher->id) }}" class="btn-sm btn-primary rounded">Edit</a>
-                                            <a href="{{ Route('teacher.destroy',$teacher->id) }}" class="btn-sm btn-danger rounded">Delete</a>
+                                            <a href="{{ Route('admin.teacher.edit',$teacher->id) }}" class="btn-sm btn-primary rounded">Edit</a>
+                                            <a href="{{ Route('admin.teacher.destroy',$teacher->id) }}" class="btn-sm btn-danger rounded">Delete</a>
                                         </td>
                                     </tr>
                                     @endforeach

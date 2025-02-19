@@ -23,20 +23,8 @@
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                <ul class="nav navbar-nav">
                   <li class="menu-title">Menu</li>
-                 <li class="menu-item-has-children dropdown">
-                     <a href="{{ Route('admin.register.view') }}" >Register</a>
-                  </li>
                   <li class="menu-item-has-children dropdown">
-                     <a href="{{Route('admin.student.view') }}" >Student</a>
-                  </li>
-                  <li class="menu-item-has-children dropdown">
-                     <a href="{{Route('admin.teacher.view') }}" >Teacher</a>
-                  </li>
-				  <li class="menu-item-has-children dropdown">
-                     <a href="{{ Route('admin.course.view') }}" >Course</a>
-                  </li>
-                  <li class="menu-item-has-children dropdown">
-                     <a href="{{ Route('admin.department.view') }}" >Department</a>
+                     <a href="{{Route('teacher.student.view') }}" >Student</a>
                   </li>
                </ul>
             </div>
@@ -54,10 +42,10 @@
             <div class="top-right">
                <div class="header-menu">
                   <div class="user-area dropdown float-right">
-                  <form method="POST" action="{{ route('logout') }}">
+                  <form method="POST" action="{{ route('teacher.logout') }}">
                         @csrf
                         <button class="btn btn-success" class="nav-link"><i class="fa fa-power-off"></i>Logout</button>
-                     </form>
+                     </form> 
                   </div>
                </div>
             </div>

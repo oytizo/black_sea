@@ -9,7 +9,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h4 class="box-title">Course</h4>
-                        <h4 class="box-link"><a href="{{ Route('course.create') }}">Add Course</a></h4>
+                        <h4 class="box-link"><a href="{{ Route('admin.course.create') }}">Add Course</a></h4>
                     </div>
                     <div class="card-body--">
                         <div class="table-stats order-table ov-h">
@@ -35,8 +35,8 @@
                                         <td>{{ $course->duration }}</td>                                    
                                         <td>{{ $course->status? 'Active':'Deactive' }}</td>                                    
                                         <td>
-                                            <a href="{{ Route('course.edit',$course->id) }}" class="btn-sm btn-primary rounded">Edit</a>
-                                            <a href="{{ Route('course.destroy',$course->id) }}" class="btn-sm btn-danger rounded">Delete</a>
+                                            <a href="{{ Route('admin.course.edit',$course->id) }}" class="btn-sm btn-primary rounded">Edit</a>
+                                            <a href="{{ Route('admin.course.destroy',$course->id) }}" class="btn-sm btn-danger rounded">Delete</a>
                                         </td>
                                     </tr>
                                     @endforeach

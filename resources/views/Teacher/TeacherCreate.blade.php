@@ -7,10 +7,10 @@
          <div class="col-xl-12">
             <div class="card">
                <div class="card-body">
-                  <h4 class="box-title"><a href="{{ Route('teacher.view') }}">Teacher</a> </h4>
+                  <h4 class="box-title"><a href="{{ Route('admin.teacher.view') }}">Teacher</a> </h4>
                </div>
                <div class="card-body-- pb-1">
-                  <form class="pb-5 m-3" action="{{ Route('teacher.store') }}" method="POST" encrypt="multipart/form-data">
+                  <form class="pb-5 m-3" action="{{ Route('admin.teacher.store') }}" method="POST" encrypt="multipart/form-data">
                      @csrf
                      <div class="form-group">
                         <label for="formGroupExampleInput">Teacher Name</label>

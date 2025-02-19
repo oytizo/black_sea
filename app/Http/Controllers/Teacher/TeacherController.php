@@ -6,15 +6,18 @@ use Illuminate\Http\Request;
 use App\Models\Teacher\Teacher;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\TeacherRequest;
+use App\Repositories\Interfaces\StudentRepositoryInterface;
 use App\Repositories\Interfaces\TeacherRepositoryInterface;
 
 class TeacherController extends Controller
 {
     private $teacherRepository;
+    private $studentRepository;
 
-    public function __construct(TeacherRepositoryInterface $teacherRepository)
+    public function __construct(TeacherRepositoryInterface $teacherRepository, StudentRepositoryInterface $studentRepository)
     {
         $this->teacherRepository = $teacherRepository;
+        $this->studentRepository = $studentRepository;
     }
     /**
      * Display a listing of the resource.
@@ -92,5 +95,12 @@ class TeacherController extends Controller
     {
         $this->teacherRepository->delete($id);
         return redirect()->route('teacher.view')->with('success', 'Teacher Deleted Successfully');
+    }
+
+    // This is use for student information to teacher dashboard
+    public function studentinfo()
+    {
+        $students = $this->studentRepository->all();
+        return view('Teacher.StudentIndex', ['students' => $students]);
     }
 }
