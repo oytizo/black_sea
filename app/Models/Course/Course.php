@@ -2,12 +2,19 @@
 
 namespace App\Models\Course;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Student\Student;
+use Database\Factories\CourseFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Course extends Model
 {
     use HasFactory;
+    
+    protected static function newFactory()
+    {
+        return CourseFactory::new();
+    }
 
     protected $fillable = [
         'name',
@@ -16,4 +23,9 @@ class Course extends Model
         'status',
         'duration',
     ];
+
+    public function students()
+    {
+        return $this->belongsToMany(Student::class);
+    }
 }
